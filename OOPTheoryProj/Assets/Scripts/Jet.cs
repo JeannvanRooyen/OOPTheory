@@ -6,7 +6,18 @@ public class Jet : Vehicle
 {
     private static int fuelLevel;
     private const int maxFuelLevel = 500;
-    // Start is called before the first frame update
+    private bool engineIsRunning = false;
+    public float maxAltitude;
+    public float currentAltitude;
+
+    public bool AltitudeWarning
+    {
+        get
+        {
+            return currentAltitude >= maxAltitude;
+        }
+    }
+
     void Start()
     {
         MaxSpeed = 1000;
@@ -23,9 +34,22 @@ public class Jet : Vehicle
         }
     }
 
+    public void StartEngine()
+    {
+        engineIsRunning = true;
+    }
+
+    public void StopEngine()
+    {
+        engineIsRunning = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        
+        if (engineIsRunning)
+        {
+            //Code movement here...
+        }
     }
 }
